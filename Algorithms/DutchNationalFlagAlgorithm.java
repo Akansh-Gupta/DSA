@@ -32,4 +32,3 @@ public class DutchNationalFlagAlgorithm {
         sc.close();
     }
 }
->>>>>>> 37bfcc5232fe899e6c5529247ba75493463f4e63
