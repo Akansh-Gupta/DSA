@@ -1,14 +1,14 @@
 public class SinglyCircularLinkedList {
-    Node head;
+    SinglyCircularNode head;
 
     void insert(int data) {
-        Node newnode = new Node(data);
+        SinglyCircularNode newnode = new SinglyCircularNode(data);
         if (head == null) {
             head = newnode;
             newnode.next = head;
             return;
         }
-        Node temp = head;
+        SinglyCircularNode temp = head;
         while (temp.next != head) {
             temp = temp.next;
         }
@@ -24,7 +24,7 @@ public class SinglyCircularLinkedList {
             head = null;
             return;
         }
-        Node temp = head;
+        SinglyCircularNode temp = head;
         while (temp.next.next != head) {
             temp = temp.next;
         }
@@ -36,7 +36,7 @@ public class SinglyCircularLinkedList {
             System.out.println(oldval + " doesn't exist in list");
             return;
         }
-        Node temp = head;
+        SinglyCircularNode temp = head;
         do {
             if (temp.data == oldval) {
                 temp.data = newval;
@@ -49,7 +49,7 @@ public class SinglyCircularLinkedList {
     }
 
     void printList(SinglyCircularLinkedList list) {
-        Node temp = list.head;
+        SinglyCircularNode temp = list.head;
         if (temp == null) {
             System.out.println("Empty");
             return;
