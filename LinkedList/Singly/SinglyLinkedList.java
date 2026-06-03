@@ -1,16 +1,16 @@
 public class SinglyLinkedList {
-    Node head;
+    SinglyNode head;
 
     void insertAtBegin(int data) {
-        Node newnode = new Node(data);
+        SinglyNode newnode = new SinglyNode(data);
 
         newnode.next = head;
         head = newnode;
     }
 
     void insertAtPos(int data, int pos) {
-        Node newnode = new Node(data);
-        Node temp = head;
+        SinglyNode newnode = new SinglyNode(data);
+        SinglyNode temp = head;
         if (pos == 1) {
             newnode.next = head;
             head = newnode;
@@ -31,13 +31,13 @@ public class SinglyLinkedList {
     }
 
     void insertAtEnd(int data) {
-        Node newnode = new Node(data);
+        SinglyNode newnode = new SinglyNode(data);
 
         if (head == null) {
             head = newnode;
             return;
         }
-        Node temp = head;
+        SinglyNode temp = head;
         while (temp.next != null) {
             temp = temp.next;
         }
@@ -49,7 +49,7 @@ public class SinglyLinkedList {
     }
 
     void deleteEnd() {
-        Node temp = head;
+        SinglyNode temp = head;
         while (temp.next.next != null) {
             temp = temp.next;
         }
@@ -57,7 +57,7 @@ public class SinglyLinkedList {
     }
 
     void deleteFromPos(int pos) {
-        Node temp = head;
+        SinglyNode temp = head;
         int curpos = 1;
         while (temp != null && curpos < pos - 1) {
             temp = temp.next;
@@ -71,7 +71,7 @@ public class SinglyLinkedList {
     }
 
     void update(int oldval, int newval) {
-        Node temp = head;
+        SinglyNode temp = head;
         while (temp != null && temp.data != oldval) {
             temp = temp.next;
         }
@@ -83,7 +83,7 @@ public class SinglyLinkedList {
     }
 
     void printList(SinglyLinkedList list) {
-        Node temp = list.head;
+        SinglyNode temp = list.head;
         if (temp == null) {
             System.out.println("Empty");
             return;
