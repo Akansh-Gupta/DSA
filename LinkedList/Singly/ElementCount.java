@@ -1,6 +1,6 @@
 public class ElementCount {
     static int count(SinglyLinkedList list){
-        Node temp = list.head;
+        SinglyNode temp = list.head;
         int count = 0;
         while (temp!=null) {
             count++;
