@@ -1,6 +1,6 @@
 public class DeleteSpecificElement {
     static void deleteSpecific(SinglyCircularLinkedList list, int val) {
-        Node temp = list.head;
+        SinglyCircularNode temp = list.head;
         while(temp.next!=list.head && temp.next.data!=val){
             temp = temp.next;
         }
