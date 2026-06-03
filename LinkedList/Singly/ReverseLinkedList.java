@@ -1,8 +1,8 @@
 public class ReverseLinkedList {
     static void reverse(SinglyLinkedList list) {
-        Node prev = null;
-        Node next = null;
-        Node curr = list.head;
+        SinglyNode prev = null;
+        SinglyNode next = null;
+        SinglyNode curr = list.head;
         while (curr != null) {
             next = curr.next;
             curr.next = prev;
