@@ -7,13 +7,12 @@ public class StackLinkedList {
         top = newnode;
     }
 
-    void pop() {
+    int pop() {
+        StackNode temp = top;
         if (top == null)
-            System.out.println("Empty Stack");
-        else {
-            System.out.println("Popped : " + top.data);
-            top = top.next;
-        }
+            return -1;
+        top = top.next;
+        return temp.data;
     }
 
     void display() {
@@ -28,11 +27,10 @@ public class StackLinkedList {
         }
     }
 
-    void peek() {
+    int peek() {
         if (top == null)
-            System.out.println("NULL");
-        else
-            System.out.println("Top of stack -> " + top.data);
+            return -1;
+        return top.data;
     }
 
     boolean isempty() {
@@ -43,6 +41,7 @@ public class StackLinkedList {
         StackLinkedList st = new StackLinkedList();
         if (st.isempty())
             System.out.println("Empty Stack");
+        st.pop();
         st.push(10);
         st.push(20);
         st.push(30);
