@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class ValidParenthesis {
-    public boolean isValid(String s) {
+    static boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
         HashMap<Character, Character> map = new HashMap<>();
         map.put(')', '(');
@@ -21,5 +21,12 @@ public class ValidParenthesis {
             }
         }
         return st.isEmpty();
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        if(isValid(s)) System.out.println("Valid parenthesis");
+        else System.out.println("Invalid parenthesis");
+        sc.close();
     }
 }
