@@ -1,5 +1,7 @@
-import java.util.Scanner;
+// Sort array with {0,1,2}
+//3 pointers left mid right, 0 -> swap(l,m), 1 -> m++, 2 -> swap(m,r)
 
+import java.util.Scanner;
 public class DutchNationalFlagAlgorithm {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
