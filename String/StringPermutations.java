@@ -1,4 +1,5 @@
 import java.util.*;
+
 //Sort string and find permutations by holding one character and swapping rest
 public class StringPermutations {
     static String swap(String s, int i, int j){
@@ -28,7 +29,3 @@ public class StringPermutations {
         sc.close();
     }
 }
-
-
-
-
