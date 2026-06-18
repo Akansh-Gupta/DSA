@@ -12,7 +12,7 @@ public class ValidParenthesis {
             if (ch == '(' || ch == '{' || ch == '[') {
                 st.push(ch);
             } else {
-                if (st.isEmpty())
+                    if (st.isEmpty())
                     return false;
                 char top = st.pop();
                 if (top != map.get(ch)) {
