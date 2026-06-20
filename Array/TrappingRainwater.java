@@ -11,6 +11,7 @@ public class TrappingRainwater {
             height[i] = sc.nextInt();
         if (n == 0) {
             System.out.println("Total water : " + 0);
+            sc.close();
             return;
         }
         int left[] = new int[n];
