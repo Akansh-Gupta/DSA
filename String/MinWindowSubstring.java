@@ -1,56 +1,42 @@
-// Smallest window containing all target characters
-class Solution {
+import java.util.Scanner;
 
-    private int nextGap(int gap) {
-        if (gap <= 1)
-            return 0;
-        return (gap / 2) + (gap % 2);
+public class MinWindowSubstring {
+    static boolean contain(int s[], int t[]) {
+        for (int i = 0; i < 256; i++) {
+            if (t[i] > s[i])
+                return false;
+        }
+        return true;
     }
 
-    public void mergeArrays(int a[], int b[]) {
-
-        int n = a.length;
-        int m = b.length;
-
-        int gap = nextGap(n + m);
-
-        while (gap > 0) {
-
-            int i, j;
-
-            // Compare elements in first array
-            for (i = 0; i + gap < n; i++) {
-                if (a[i] > a[i + gap]) {
-                    int temp = a[i];
-                    a[i] = a[i + gap];
-                    a[i + gap] = temp;
-                }
-            }
-
-            // Compare between arrays
-            for (j = (gap > n) ? gap - n : 0;
-                 i < n && j < m;
-                 i++, j++) {
-
-                if (a[i] > b[j]) {
-                    int temp = a[i];
-                    a[i] = b[j];
-                    b[j] = temp;
-                }
-            }
-
-            // Compare elements in second array
-            if (j < m) {
-                for (j = 0; j + gap < m; j++) {
-                    if (b[j] > b[j + gap]) {
-                        int temp = b[j];
-                        b[j] = b[j + gap];
-                        b[j + gap] = temp;
-                    }
-                }
-            }
-
-            gap = nextGap(gap);
+    static String minWindow(String s, String t) {
+        int l = 0, r, min = Integer.MAX_VALUE, start = 0;
+        int freqS[] = new int[256];
+        int freqT[] = new int[256];
+        for (int i = 0; i < t.length(); i++) {
+            freqT[t.charAt(i)]++;
         }
+        for (r = 0; r < s.length(); r++) {
+            freqS[s.charAt(r)]++;
+            while (contain(freqS, freqT)) {
+                if (r - l + 1 < min) {
+                    min = r - l + 1;
+                    start = l;
+                }
+                freqS[s.charAt(l++)]--;
+            }
+        }
+
+        return min == Integer.MAX_VALUE ? "" : s.substring(start, start + min);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter String : ");
+        String str = sc.nextLine();
+        System.out.print("Enter Target : ");
+        String target = sc.nextLine();
+        System.out.println("Min window substring : " + minWindow(str, target));
+        sc.close();
     }
 }
