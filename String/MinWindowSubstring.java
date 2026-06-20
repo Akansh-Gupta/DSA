@@ -10,6 +10,7 @@ public class MinWindowSubstring {
     }
 
     static String minWindow(String s, String t) {
+        if(s.length()<t.length()) return "";
         int l = 0, r, min = Integer.MAX_VALUE, start = 0;
         int freqS[] = new int[256];
         int freqT[] = new int[256];
