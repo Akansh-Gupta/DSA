@@ -1,7 +1,6 @@
 import java.util.Stack;
 
-class MinStack {
-
+public class MinStack {
     private Stack<Integer> stack;
     private Stack<Integer> minStack;
 
@@ -37,9 +36,7 @@ class MinStack {
     public int getMin() {
         return minStack.peek();
     }
-}
 
-public class Main {
     public static void main(String[] args) {
         MinStack minStack = new MinStack();
 
@@ -51,7 +48,7 @@ public class Main {
 
         minStack.pop();
 
-        System.out.println("Top: " + minStack.top());       // 0
+        System.out.println("Top: " + minStack.top()); // 0
         System.out.println("Minimum: " + minStack.getMin()); // -2
     }
 }
