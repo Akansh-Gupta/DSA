@@ -1,84 +1,39 @@
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {}
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
-
 public class MergeSortedLists {
-
-    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode dummy = new ListNode(-1);
-        ListNode curr = dummy;
-
-        while (list1 != null && list2 != null) {
-            if (list1.val <= list2.val) {
-                curr.next = list1;
-                list1 = list1.next;
-            } else {
-                curr.next = list2;
-                list2 = list2.next;
-            }
-            curr = curr.next;
-        }
-
-        if (list1 != null) {
-            curr.next = list1;
-        } else {
-            curr.next = list2;
-        }
-
-        return dummy.next;
-    }
-
-    public static ListNode createList(int[] arr) {
-        ListNode dummy = new ListNode(-1);
-        ListNode curr = dummy;
-
-        for (int num : arr) {
-            curr.next = new ListNode(num);
-            curr = curr.next;
-        }
-
-        return dummy.next;
-    }
-
-    public static void printList(ListNode head) {
-        while (head != null) {
-            System.out.print(head.val);
-            if (head.next != null) {
-                System.out.print(" -> ");
-            }
-            head = head.next;
-        }
-        System.out.println();
-    }
-
     public static void main(String[] args) {
-        int[] arr1 = {1, 2, 4};
-        int[] arr2 = {1, 3, 4};
+        SinglyLinkedList l1 = new SinglyLinkedList();
+        SinglyLinkedList l2 = new SinglyLinkedList();
+        SinglyLinkedList res = new SinglyLinkedList();
 
-        ListNode list1 = createList(arr1);
-        ListNode list2 = createList(arr2);
+        l1.insertAtEnd(10);
+        l1.insertAtEnd(20);
+        l1.insertAtEnd(40);
+        l1.insertAtEnd(70);
+        l1.insertAtEnd(90);
+        l1.insertAtEnd(110);
 
-        System.out.print("List 1: ");
-        printList(list1);
+        l2.insertAtEnd(30);
+        l2.insertAtEnd(50);
+        l2.insertAtEnd(80);
+        l2.insertAtEnd(100);
 
-        System.out.print("List 2: ");
-        printList(list2);
+        while (l1.head != null && l2.head != null) {
+            if (l1.head.data < l2.head.data) {
+                res.insertAtEnd(l1.head.data);
+                l1.head = l1.head.next;
+            } else {
+                res.insertAtEnd(l2.head.data);
+                l2.head = l2.head.next;
+            }
+        }
+        while (l1.head != null) {
+            res.insertAtEnd(l1.head.data);
+            l1.head = l1.head.next;
+        }
 
-        ListNode merged = mergeTwoLists(list1, list2);
-
-        System.out.print("Merged List: ");
-        printList(merged);
+        while (l2.head != null) {
+            res.insertAtEnd(l2.head.data);
+            l2.head = l2.head.next;
+        }
+        res.printList(res);
     }
 }
