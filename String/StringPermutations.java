@@ -9,14 +9,14 @@ public class StringPermutations {
         arr[j] = temp;
         return new String(arr);
     }
-    static void permutaions(String s, int l, int r){
+    static void permutations(String s, int l, int r){
         if(l == r) {
             System.out.println(s);
             return; 
         }
         for(int i=l; i<=r; i++){
             s = swap(s, l ,i);
-            permutaions(s, l+1, r);
+            permutations(s, l+1, r);
             s = swap(s, l ,i);
         }
     }
@@ -25,7 +25,7 @@ public class StringPermutations {
         System.out.print("Enter string: ");
         String str = sc.nextLine();
         System.out.println("All possible permutations: ");
-        permutaions(str, 0, str.length()-1);
+        permutations(str, 0, str.length()-1);
         sc.close();
     }
 }
